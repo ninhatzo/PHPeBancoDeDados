@@ -1,0 +1,22 @@
+:root {
+    --primary-color: #af66c5;
+    --secondary-color: #67297a;
+    --light-color: #fff;
+    --dark-mode: rgba(0, 0, 0, 0.1);
+    --primary-gradiente: #ffffff;
+    --secondary-gradiente: #ffa8d0;
+    --table-back: rgba(255, 255, 255, 0.452);
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, var(--secondary-gradiente) , var(--primary-gradiente));
+    width: 100%;
+    height: 100vh;
+}
