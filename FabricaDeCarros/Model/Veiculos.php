@@ -11,9 +11,10 @@
         }
 
         function getAll() {
-            $sqlSelect = $this->conexao->query("SELECT * FROM $this->veiculo");
-            $resultQuery = $sqlSelect->fetchAll();
-            return $resultQuery;
+            $sql = "SELECT * FROM ($this->veiculo)";
+            $sqlSelect = $this->conexao->prepare($sql);
+            $sqlSelect->execute();
+            return  $resultQuery = $sqlSelect->fetchAll(PDO::FETCH_ASSOC);
         }
 
         function insert($modelo,$cor) {
@@ -22,8 +23,8 @@
         }
 
         function edit($id, $modelo, $cor) {
-            $sqlSelect = $this->conexao->prepare("UPDATE $this->veiculo SET $modelo = ?, $cor = ? WHERE id = ?");
-            return $resultQuery = $sqlSelect->fetchAll();
+            $resultQuery = $this->conexao->prepare("UPDATE $this->veiculo SET modelo = ?, cor = ? WHERE id = ?");
+            return $resultQuery->execute([$modelo, $cor, $id]);
         }
         
         function delete($id) {
@@ -33,7 +34,7 @@
 
         function getId($id) {
             $sqlSelect = $this->conexao->query("SELECT * FROM $this->veiculo WHERE id = $id");
-            return $resultQuery = $sqlSelect->fetchAll();
+            return $resultQuery = $sqlSelect->fetch();
         }
     }
 

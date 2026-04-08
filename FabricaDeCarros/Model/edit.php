@@ -17,66 +17,38 @@
 </head>
 
 <body> 
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-file-pen"></i> Editar Carros 
+                <a href="index.php" class="btn-voltar float-right"><i class="fa-solid fa-angle-left"></i>Voltar ao início</a>
+            </div>
 
-<?php 
-    include_once('../configuration/Conecte.php');
+            <div class="card-body">
 
-    // Evita erro caso não exista
-    $modelo = $row[0]['modelo'] ?? '';
-    $cor = $row[0]['cor'] ?? '';
-    $editId = $_REQUEST['editId'] ?? '';
+                <form action="./index.php?a=edit" method="post" id="formEditar">
 
-    print_r($resultQuery);
-?>
+                    <div class="form-group">
+                        <label for="modelo">Modelo</label>
+                        <input type="text" name="modelo" id="modelo" class="form-control"  placeholder="Digite o modelo do carro" required value="<?php echo $resultQuery['modelo'] ?>">
+                    </div>
 
-<div class="container">
-    <div class="card">
-        <div class="card-header">
-        <i class="fa-solid fa-file-pen"></i> Editar Carros 
-            <a href="../index.php" class="btn-voltar float-right"><i class="fa-solid fa-angle-left"></i>Voltar ao início</a>
-        </div>
+                    <div class="form-group">
+                        <label>Cor</label>
+                        <input type="text" name="cor" id="cor" class="form-control"  placeholder="Digite a cor do carro" required value="<?php echo $resultQuery['cor'] ?>" >
+                    </div>
 
-        <div class="card-body">
+                    <input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
 
-            <form action="index.php?a=getId" method="post" id="formEditar">
+                    <button type="submit" name="submit" id="submit" class="btn-editar d-block mx-auto">
+                        <i class="fa-regular fa-pen-to-square"></i> Editar Carro
+                    </button>
 
-                <div class="form-group">
-                    <label>Modelo</label>
-                    <input type="text" name="modelo" id="modelo" class="form-control" value="<?php echo $resultQuery['modelo']; ?>" placeholder="Digite o modelo do carro" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Cor</label>
-                    <input type="text" name="cor" id="cor" class="form-control" value="<?php echo $resultQuery['cor']; ?>" placeholder="Digite a cor do carro" required>
-                </div>
-
-                <input type="hidden" name="id" id="id" value="<?php $id; ?>">
-
-                <button type="submit" name="submit" id="submit" class="btn-editar d-block mx-auto">
-                <i class="fa-regular fa-pen-to-square"></i> 
-                    Editar Carro
-                </button>
-
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
-
-<!-- Script de confirmação -->
-<script>
-document.getElementById("formEditar").addEventListener("submit", function(e) {
-    const confirmacao = confirm("Tem certeza que deseja editar este carro?");
-    
-    if (!confirmacao) {
-        e.preventDefault();
-    }
-});
-</script>
-
+    <script src="src/js/script.js"></script>
 </body>
 </html>

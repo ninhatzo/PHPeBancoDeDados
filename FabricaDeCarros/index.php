@@ -5,7 +5,7 @@
     $controller = new controleVeiculos();
     
     $acao = $_GET['a'] ?? 'index';
-    $rotasPermitidas =['delete','insert','getId'];
+    $rotasPermitidas =['delete','insert','getId', 'edit'];
 
     if(in_array($acao, $rotasPermitidas)) {
         $controller->$acao();

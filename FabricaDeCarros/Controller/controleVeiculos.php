@@ -33,12 +33,13 @@
             $modelo = $_POST['modelo'] ?? null;
             $cor = $_POST['cor'] ?? null;
             $resultQuery = $this->model->edit($id,$modelo,$cor);
-            require_once __DIR__ . 'index.php';
+            header("location: ./index.php?a=getAll"); 
         }
 
         function getId() {
             $id = $_GET['id'] ?? null;
-            $this->model->getId($id);
+            $resultQuery =  $this->model->getId($id);
+            require_once __DIR__ . '/../Model/edit.php';
         }
 
         function delete() {
