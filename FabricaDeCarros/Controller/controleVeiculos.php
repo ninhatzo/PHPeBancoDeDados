@@ -39,7 +39,7 @@
         function getId() {
             $id = $_GET['id'] ?? null;
             $resultQuery =  $this->model->getId($id);
-            require_once __DIR__ . '/../Model/edit.php';
+            require_once __DIR__ . '/../Views/edit.php';
         }
 
         function delete() {

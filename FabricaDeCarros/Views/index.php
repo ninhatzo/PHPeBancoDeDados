@@ -21,7 +21,7 @@
     <img class="fundo" src="Views/src/imgs/fundo.jpg" alt="">
 
     <div class="content">
-        <a href="Model/add.php">
+        <a href="Views/add.php">
             <div class="btn-criar">
                 <i class="fa-solid fa-car"></i>
                 <br>
