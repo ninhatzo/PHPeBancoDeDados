@@ -1,0 +1,58 @@
+:root {
+    --background: #cffff1;
+    --blue-color: #8bc7ff;
+    --blue-secondary: #2495ff;
+    --primary-color: #af66c5;
+    --secondary-color: #67297a;
+    --white-color: #fff;
+    --secondary-gradiente: #ffa8d0;
+    --yellow-color: rgb(212, 214, 97);
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: var(--background);
+}
+
+h2 {
+    color: var(--secondary-color);
+}
+
+th {
+    background-color: var(--secondary-gradiente) !important;
+    border: none !important;
+}
+
+.btn-success, .btn-secondary {
+    background-color: var(--primary-color);
+    border: none;
+}
+
+.btn-success:hover, .btn-secondary:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-primary {
+    background-color: var(--blue-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--blue-secondary);
+}
+
+.btn-warning {
+    background-color: var(--yellow-color);
+    border: none;
+    color: var(--white-color);
+}
